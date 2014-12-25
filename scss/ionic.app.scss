@@ -25,3 +25,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 #left-title {
   text-align: left;
 }
+
+.archive-list {
+  overflow: hidden;
+  font-size: 90%;
+  color: #999;
+  li {
+    display: inline-block;
+
+    i {
+      margin-left: 5px;
+    }
+  }
+}

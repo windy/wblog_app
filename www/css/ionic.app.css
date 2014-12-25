@@ -7017,3 +7017,12 @@ a.button {
 
 #left-title {
   text-align: left; }
+
+.archive-list {
+  overflow: hidden;
+  font-size: 90%;
+  color: #999; }
+  .archive-list li {
+    display: inline-block; }
+    .archive-list li i {
+      margin-left: 5px; }

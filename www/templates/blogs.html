@@ -3,7 +3,33 @@
     <ion-refresher pulling-text="上拉刷新..." on-refresh="load()"></ion-refresher>
     <ion-list>
       <ion-item ng-repeat="post in posts" href="#/app/blogs/{{post.id}}">
-        {{post.title}}
+        <h2>
+        	{{post.title}}
+        </h2>
+        <p>
+          <ul class='archive-list'>
+            <li>
+              <i class="icon ion-calendar"></i>
+              {{ post.created_at }}
+            </li>
+            <li>
+              <i class="icon ion-navicon-round"></i>
+              {{ post.type }}
+            </li>
+            <li>
+              <i class="icon ion-pricetags"></i>
+              {{ post.labels }}
+            </li>
+            <li>
+              <i class="icon ion-person-stalker"></i>
+              {{ post.visited_count }}
+            </li>
+            <li>
+              <i class="icon ion-heart"></i>
+              {{ post.liked_count}}
+            </li>
+          </ul>
+        </p>
       </ion-item>
     </ion-list>
   </ion-content>
