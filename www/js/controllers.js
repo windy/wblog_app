@@ -5,20 +5,14 @@ angular.module('starter.controllers', ['ngSanitize'])
   $rootScope.site = 'http://localhost:3002';
 })
 
-.controller('BlogsCtrl', function($scope, $http, $rootScope) {
+.controller('BlogsCtrl', function($scope, $http, $rootScope, $location) {
+  var type = $location.search().type;
   $http({
     url: $rootScope.site + "/archives.json",
+    params: { type: type }
   }).success( function(res){
     $scope.posts = res.posts;
   });
-  $scope.posts = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
 })
 
 .controller('BlogCtrl', function($scope, $http, $rootScope, $stateParams, $sce) {
@@ -33,6 +27,7 @@ angular.module('starter.controllers', ['ngSanitize'])
   });
 
   $scope.trust_content_html = function(){
-    return $sce.trustAsHtml($scope.content_html)
+    $scope.replace_img_src_content_html = $scope.content_html.replace(/img src="/g, "img src=\"" + $rootScope.site);
+    return $sce.trustAsHtml($scope.replace_img_src_content_html)
   }
 });

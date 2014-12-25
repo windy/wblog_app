@@ -40,11 +40,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.blogs', {
-    url: "/blogs",
+    url: "/blogs?type",
     views: {
       'menuContent': {
         templateUrl: "templates/blogs.html",
-        controller: 'BlogsCtrl'
+        controller: 'BlogsCtrl',
       }
     }
   })
@@ -54,7 +54,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: "templates/about.html",
-        controller: 'PlaylistCtrl'
+        controller: 'BlogCtrl'
       }
     }
   })
