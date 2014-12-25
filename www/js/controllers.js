@@ -12,8 +12,8 @@ angular.module('starter.controllers', ['ngSanitize'])
 })
 
 .controller('AppCtrl', function($scope, $rootScope) {
-  //$rootScope.site = 'http://yafeilee.me';
-  $rootScope.site = 'http://localhost:3002';
+  $rootScope.site = 'http://yafeilee.me';
+  //$rootScope.site = 'http://localhost:3002';
 })
 
 .controller('HomeCtrl', function($scope, $http, $rootScope, $state, ImageProcessor) {
