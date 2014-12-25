@@ -1,7 +1,6 @@
-<ion-view view-title="Blog">
-  <ion-content>
-    <h1>{{ title }}</h1>
-    <div class="content_html" ng-bind-html="trust_content_html()">
+<ion-view view-title="{{ title }}">
+  <ion-content class='has-header padding'>
+    <div class="content_html markdown" ng-bind-html="trust_content_html()">
       加载中...
     </div>
   </ion-content>

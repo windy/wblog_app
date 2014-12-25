@@ -1,0 +1,48 @@
+.markdown {
+
+  word-wrap: break-word;
+  overflow: hidden;
+
+  @media only screen and (min-width: 40.063em) {
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media only screen and (max-width: 40em) {
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 1.2875rem;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 1rem;
+  }
+
+  pre {
+    border: 1px solid #cccccc;
+    padding: 1rem 0.5rem;
+    margin: 1rem 0;
+    font-weight: 500;
+    color: #d14;
+    line-height: 1.5;
+    white-space: pre;
+    word-wrap: normal;
+    overflow-x: auto;
+    code {
+      border: none;
+      background-color: transparent;
+      color: #d14;
+    }
+  }
+
+  code {
+    margin-left: 0.25rem;
+    margin-right: 0.025rem;
+    font-weight: 500;
+    border: none;
+    background-color: transparent;
+    color: #d14;
+  }
+}

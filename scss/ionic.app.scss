@@ -21,6 +21,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@import "scss/hightlight";
+@import "scss/markdown";
+@import "scss/about";
+
 
 #left-title {
   text-align: left;
