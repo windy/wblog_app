@@ -1,40 +1,17 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngSanitize'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-  // Form data for the login modal
-  $scope.loginData = {};
-
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
+.controller('AppCtrl', function($scope, $rootScope) {
+  //$rootScope.site = 'http://yafeilee.me';
+  $rootScope.site = 'http://localhost:3002';
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
+.controller('BlogsCtrl', function($scope, $http, $rootScope) {
+  $http({
+    url: $rootScope.site + "/archives.json",
+  }).success( function(res){
+    $scope.posts = res.posts;
+  });
+  $scope.posts = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
     { title: 'Dubstep', id: 3 },
@@ -44,5 +21,18 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('BlogCtrl', function($scope, $http, $rootScope, $stateParams, $sce) {
+
+  $scope.content_html = '';
+
+  $http({
+    url: $rootScope.site + "/blogs/" + $stateParams.id + ".json"
+  }).success(function(res){
+    $scope.content_html = res.content_html;
+    $scope.created_at = res.created_at;
+  });
+
+  $scope.trust_content_html = function(){
+    return $sce.trustAsHtml($scope.content_html)
+  }
 });

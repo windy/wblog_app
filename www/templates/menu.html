@@ -14,21 +14,27 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title" id="left-title">Menu</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item nav-clear menu-close ng-click="login()">
-          Login
+        <ion-item nav-clear menu-close href="#/app/home">
+          首页
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/search">
-          Search
+        <ion-item nav-clear menu-close href="#/app/blogs">
+          技术
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/browse">
-          Browse
+        <ion-item nav-clear menu-close href="#/app/blogs">
+          生活
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          Playlists
+        <ion-item nav-clear menu-close href="#/app/blogs">
+          创业
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/blogs">
+          时间线
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/about">
+          关于我
         </ion-item>
       </ion-list>
     </ion-content>
