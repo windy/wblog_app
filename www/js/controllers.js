@@ -63,9 +63,6 @@ angular.module('starter.controllers', ['ngSanitize'])
 .controller('BlogCtrl', function($scope, $http, $rootScope, $stateParams, $sce, ImageProcessor) {
 
   $scope.post = {};
-   $scope.$on('$ionicView.enter', function(){
-    console.log('111');
-  })
 
   $http({
     url: $rootScope.site + "/blogs/" + $stateParams.id + ".json"
