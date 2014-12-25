@@ -7266,3 +7266,11 @@ img {
 
 .ptag {
   margin-left: 7px; }
+
+.read-more {
+  margin-top: 10px; }
+
+.created-at {
+  margin-top: 10px;
+  text-align: right;
+  color: #999; }
