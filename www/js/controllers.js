@@ -19,13 +19,18 @@ angular.module('starter.controllers', ['ngSanitize'])
     return map[type];
   }
 
+  $scope.load = function(){
+    $http({
+      url: $rootScope.site + "/archives.json",
+      params: { type: $scope.type, all: true, start_with: 1 }
+    }).success( function(res){
+      $scope.posts = res.posts;
+    }).finally(function(){
+      $scope.$broadcast('scroll.refreshComplete');
+    });
+  }
 
-  $http({
-    url: $rootScope.site + "/archives.json",
-    params: { type: type }
-  }).success( function(res){
-    $scope.posts = res.posts;
-  });
+  $scope.load();
 })
 
 .controller('BlogCtrl', function($scope, $http, $rootScope, $stateParams, $sce) {
