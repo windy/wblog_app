@@ -7,6 +7,19 @@ angular.module('starter.controllers', ['ngSanitize'])
 
 .controller('BlogsCtrl', function($scope, $http, $rootScope, $location) {
   var type = $location.search().type;
+  var map = {
+    tech: '技术',
+    life: '生活',
+    creator: '创业',
+    undefined: '全部',
+  }
+  $scope.type = type;
+
+  $scope.ctype = function(){
+    return map[type];
+  }
+
+
   $http({
     url: $rootScope.site + "/archives.json",
     params: { type: type }
@@ -24,6 +37,7 @@ angular.module('starter.controllers', ['ngSanitize'])
   }).success(function(res){
     $scope.content_html = res.content_html;
     $scope.created_at = res.created_at;
+    $scope.title = res.title;
   });
 
   $scope.trust_content_html = function(){
