@@ -49,4 +49,12 @@ angular.module('starter.controllers', ['ngSanitize'])
     $scope.replace_img_src_content_html = $scope.content_html.replace(/img src="/g, "img src=\"" + $rootScope.site);
     return $sce.trustAsHtml($scope.replace_img_src_content_html)
   }
+})
+
+.controller('AboutCtrl', function($scope, $http, $rootScope){
+  $http({
+    url: $rootScope.site + "/mobile"
+  }).success(function(res){
+    $scope.content = res
+  });
 });

@@ -54,7 +54,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: "templates/about.html",
-        controller: 'BlogCtrl'
+        controller: 'AboutCtrl'
       }
     }
   })
