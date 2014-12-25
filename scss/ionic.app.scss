@@ -25,6 +25,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "scss/markdown";
 @import "scss/about";
 
+img {
+  max-width: 100%;
+}
 
 #left-title {
   text-align: left;
@@ -41,4 +44,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
       margin-left: 5px;
     }
   }
+}
+
+.ptag {
+  margin-left: 7px;
 }

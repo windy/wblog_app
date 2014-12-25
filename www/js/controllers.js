@@ -1,10 +1,33 @@
 angular.module('starter.controllers', ['ngSanitize'])
 
-.controller('AppCtrl', function($scope, $rootScope) {
-  //$rootScope.site = 'http://yafeilee.me';
-  $rootScope.site = 'http://localhost:3002';
+.factory('ImageProcessor', function($rootScope){
+  return {
+    replaceImage: function(html){
+      if( ! html ){
+        return
+      }
+      return html.replace(/(img src=")[^h]/g, "$1" + $rootScope.site + '/');
+    }
+  }
 })
 
+.controller('AppCtrl', function($scope, $rootScope) {
+  $rootScope.site = 'http://yafeilee.me';
+  //$rootScope.site = 'http://localhost:3002';
+})
+
+.controller('HomeCtrl', function($scope, $http, $rootScope, $state) {
+  $http({
+    url: $rootScope.site + '/blogs.json'
+  }).success(function(res){
+    $scope.post = res
+  });
+
+  $scope.visit = function(id){
+    $state.go('app.single', { id: id })
+  }
+
+})
 .controller('BlogsCtrl', function($scope, $http, $rootScope, $location) {
   var type = $location.search().type;
   var map = {
@@ -33,21 +56,18 @@ angular.module('starter.controllers', ['ngSanitize'])
   $scope.load();
 })
 
-.controller('BlogCtrl', function($scope, $http, $rootScope, $stateParams, $sce) {
+.controller('BlogCtrl', function($scope, $http, $rootScope, $stateParams, $sce, ImageProcessor) {
 
-  $scope.content_html = '';
+  $scope.post = {};
 
   $http({
     url: $rootScope.site + "/blogs/" + $stateParams.id + ".json"
   }).success(function(res){
-    $scope.content_html = res.content_html;
-    $scope.created_at = res.created_at;
-    $scope.title = res.title;
+    $scope.post = res;
   });
 
   $scope.trust_content_html = function(){
-    $scope.replace_img_src_content_html = $scope.content_html.replace(/img src="/g, "img src=\"" + $rootScope.site);
-    return $sce.trustAsHtml($scope.replace_img_src_content_html)
+    return $sce.trustAsHtml(ImageProcessor.replaceImage($scope.post.content_html))
   }
 })
 
