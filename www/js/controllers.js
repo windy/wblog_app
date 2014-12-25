@@ -12,11 +12,11 @@ angular.module('starter.controllers', ['ngSanitize'])
 })
 
 .controller('AppCtrl', function($scope, $rootScope) {
-  $rootScope.site = 'http://yafeilee.me';
-  //$rootScope.site = 'http://localhost:3002';
+  //$rootScope.site = 'http://yafeilee.me';
+  $rootScope.site = 'http://localhost:3002';
 })
 
-.controller('HomeCtrl', function($scope, $http, $rootScope, $state) {
+.controller('HomeCtrl', function($scope, $http, $rootScope, $state, ImageProcessor) {
   $http({
     url: $rootScope.site + '/blogs.json'
   }).success(function(res){
@@ -25,6 +25,10 @@ angular.module('starter.controllers', ['ngSanitize'])
 
   $scope.visit = function(id){
     $state.go('app.single', { id: id })
+  }
+
+  $scope.fix_image_html = function(html){
+    return ImageProcessor.replaceImage(html);
   }
 
 })
