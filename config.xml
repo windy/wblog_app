@@ -16,4 +16,11 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+
+  <platform name="ios">
+  <!-- iOS 7.0+ -->
+  <!-- iPhone / iPod Touch -->
+  <icon src="icons/ios/w-128.png" />
+
+</platform>
 </widget>
