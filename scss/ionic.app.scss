@@ -46,14 +46,16 @@ img {
 }
 
 .archive-list {
-  overflow: hidden;
-  font-size: 90%;
+  font-size: 80%;
   color: #999;
   li {
-    display: inline-block;
+    display: inline;
 
     i {
       margin-left: 5px;
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 }

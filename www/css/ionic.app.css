@@ -7256,13 +7256,14 @@ img {
   text-align: left; }
 
 .archive-list {
-  overflow: hidden;
-  font-size: 90%;
+  font-size: 80%;
   color: #999; }
   .archive-list li {
-    display: inline-block; }
+    display: inline; }
     .archive-list li i {
       margin-left: 5px; }
+      .archive-list li i:first-child {
+        margin-left: 0; }
 
 .ptag {
   margin-left: 7px; }
