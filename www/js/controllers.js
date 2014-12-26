@@ -17,11 +17,17 @@ angular.module('starter.controllers', ['ngSanitize'])
 })
 
 .controller('HomeCtrl', function($scope, $http, $rootScope, $state, ImageProcessor) {
-  $http({
-    url: $rootScope.site + '/blogs.json'
-  }).success(function(res){
-    $scope.post = res
-  });
+  $scope.load = function(){
+    $http({
+      url: $rootScope.site + '/blogs.json'
+    }).success(function(res){
+      $scope.post = res
+    }).finally(function(){
+        $scope.$broadcast('scroll.refreshComplete');
+    });
+  }
+
+  $scope.load();
 
   $scope.visit = function(id){
     $state.go('app.single', { id: id })
