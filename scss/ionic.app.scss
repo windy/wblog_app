@@ -14,6 +14,18 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+
+//$bar-stable-bg: #333;
+$button-stable-text: #fff;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -62,6 +74,7 @@ img {
 
 .first-menu {
   margin-top: 20px;
+  background-color: #333;
 }
 
 .first-menu .item-divider {
@@ -72,8 +85,38 @@ img {
   padding-bottom: 3px;
 }
 
+#first-menu {
+  .item {
+    background-color: #333;
+    color: rgba(255, 255, 255, 0.701961);
+    border-color: #232323;
+
+    &.item-divider {
+      background-color: #444;
+      border-color: #5E5E5E;
+      font-weight: 600;
+      &:first-child {
+        border-top: none;
+      }
+    }
+  }
+
+  .item-content {
+    background-color: #333 ;
+    color: rgba(255, 255, 255, 0.701961);
+  }
+}
+
 .blog-title {
   font-size: 24px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
+}
+
+.fade-bar {
+  height: 20px;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  background-color: #fff;
 }
