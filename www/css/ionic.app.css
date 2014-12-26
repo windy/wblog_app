@@ -7284,3 +7284,8 @@ img {
   font-size: 12px;
   padding-top: 3px;
   padding-bottom: 3px; }
+
+.blog-title {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px; }
