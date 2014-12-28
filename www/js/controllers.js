@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ngSanitize'])
+angular.module('starter.controllers', ['ngSanitize', 'starter.directives'])
 
 .factory('ImageProcessor', function($rootScope){
   return {
@@ -77,7 +77,7 @@ angular.module('starter.controllers', ['ngSanitize'])
   });
 
   $scope.trust_content_html = function(){
-    return $sce.trustAsHtml(ImageProcessor.replaceImage($scope.post.content_html))
+    return ImageProcessor.replaceImage($scope.post.content_html)
   }
 })
 
