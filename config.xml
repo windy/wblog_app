@@ -18,9 +18,15 @@
   </feature>
 
   <platform name="ios">
-  <!-- iOS 7.0+ -->
-  <!-- iPhone / iPod Touch -->
-  <icon src="icons/ios/w-128.png" />
+
+    <!-- iOS 7.0+ -->
+    <!-- iPhone / iPod Touch -->
+    <icon src="icons/ios/icon-60@2x.png" width="120" height="120" />
+
+    <!-- iPad -->
+    <icon src="icons/ios/icon-76.png" width="76" height="76" />
+    <icon src="icons/ios/icon-76@2x.png" width="152" height="152" />
+  </platform>
 
 </platform>
 </widget>
