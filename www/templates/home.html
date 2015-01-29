@@ -1,7 +1,10 @@
 <ion-view view-title="WinDy's Blog">
-  <ion-content class='has-header'>
+  <ion-content class='has-header padding'>
     <ion-refresher pulling-text="刷新..." on-refresh="load()"></ion-refresher>
-    <div ng-hide='post'>加载中...</div>
+    <!--<div ng-hide='post'>加载中...</div>-->
+    <div class='text-center refresher-wrapper' ng-hide='post'>
+    	<i class="icon ion-loading-d"></i>
+    </div>
     <div class="blogs" ng-show='post'>
     	<h1 class='blog-title'>{{ post.title }}</h1>
     	<p class="ptag">

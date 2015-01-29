@@ -1,8 +1,10 @@
 <ion-view title="正文">
   <ion-content class='has-header padding'>
     <h1 class='blog-title'>{{ post.title }}</h1>
+    <div class='text-center refresher-wrapper' ng-hide='post.title'>
+    	<i class="icon ion-loading-d"></i>
+    </div>
     <div class="content_html markdown" compile="trust_content_html()" >
-      加载中...
     </div>
   </ion-content>
 </ion-view>
