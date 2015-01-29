@@ -7277,7 +7277,8 @@ img {
   color: #999; }
 
 .first-menu {
-  background-color: #333; }
+  background-color: #333;
+  padding-top: 20px; }
 
 .first-menu .item-divider {
   min-height: 12px;
