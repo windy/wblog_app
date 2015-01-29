@@ -1,5 +1,5 @@
 <ion-view view-title="WinDy's Blog">
-  <ion-content class='has-header padding'>
+  <ion-content class='has-header'>
     <ion-refresher pulling-text="刷新..." on-refresh="load()"></ion-refresher>
     <div ng-hide='post'>加载中...</div>
     <div class="blogs" ng-show='post'>
@@ -14,12 +14,12 @@
     	  	{{ post.labels_content }}
     	  </span>
     	</p>
-    	
+
     	<div class="markdown content" compile='fix_image_html(post.sub_content)'>
     	</div>
-    	
+
     	<button class="read-more button button-light" ng-click='visit(post.id)'>阅读全文 >></button>
-    	
+
     	<p class="created-at">
     	  发表于: {{ post.created_at | date : 'yyyy-M-d' : 'UTC'}}
     	</p>
