@@ -55,7 +55,7 @@ angular.module('starter.controllers', ['ngSanitize', 'starter.directives'])
   $scope.posts = [];
 
   $scope.load = function(){
-    $scope.loading = true
+    $scope.loading = true;
     $http({
       url: $rootScope.site + "/archives.json",
       params: { type: $scope.type, start_with: $scope.start_with }
@@ -63,7 +63,7 @@ angular.module('starter.controllers', ['ngSanitize', 'starter.directives'])
       $scope.posts = $scope.posts.concat(res.posts);
       $scope.start_with = res.start_with;
     }).finally(function(){
-      $scope.loading = false
+      $scope.loading = false;
       $scope.$broadcast('scroll.refreshComplete');
     });
   }
