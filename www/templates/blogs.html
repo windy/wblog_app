@@ -38,9 +38,8 @@
     	<button class="button button-light" ng-click='load()' ng-hide='loading'>
     	  Load more
     	</button>
-    	<button class="button button-light" ng-show='loading'>
-        Loading
-    	</button>
+    <div class='text-center refresher-wrapper' ng-show='loading'>
+    	<i class="icon ion-loading-d"></i>
     </div>
   </ion-content>
 </ion-view>
