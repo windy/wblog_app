@@ -34,5 +34,13 @@
         </p>
       </ion-item>
     </ion-list>
+    <div class="text-center has-padding">
+    	<button class="button button-light" ng-click='load()' ng-hide='loading'>
+    	  Load more
+    	</button>
+    	<button class="button button-light" ng-show='loading'>
+        Loading
+    	</button>
+    </div>
   </ion-content>
 </ion-view>

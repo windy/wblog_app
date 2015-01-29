@@ -52,13 +52,18 @@ angular.module('starter.controllers', ['ngSanitize', 'starter.directives'])
     return map[type];
   }
 
+  $scope.posts = [];
+
   $scope.load = function(){
+    $scope.loading = true
     $http({
       url: $rootScope.site + "/archives.json",
-      params: { type: $scope.type, all: true, start_with: 1 }
+      params: { type: $scope.type, start_with: $scope.start_with }
     }).success( function(res){
-      $scope.posts = res.posts;
+      $scope.posts = $scope.posts.concat(res.posts);
+      $scope.start_with = res.start_with;
     }).finally(function(){
+      $scope.loading = false
       $scope.$broadcast('scroll.refreshComplete');
     });
   }
