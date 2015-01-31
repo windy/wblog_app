@@ -1,6 +1,6 @@
 <ion-view view-title="列表 - {{ ctype() }}">
   <ion-content>
-    <ion-refresher pulling-text="刷新..." on-refresh="load()"></ion-refresher>
+    <ion-refresher pulling-text="刷新..." on-refresh="refresh()"></ion-refresher>
     <ion-list>
       <ion-item ng-repeat="post in posts" href="#/app/blogs/{{post.id}}">
         <h2>

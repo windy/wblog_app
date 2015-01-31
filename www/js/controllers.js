@@ -54,21 +54,40 @@ angular.module('starter.controllers', ['ngSanitize', 'starter.directives'])
 
   $scope.posts = [];
 
-  $scope.load = function(){
+  $scope.refresh = function(){
+    $scope.load(true);
+  }
+
+  $scope.load = function(refresh){
+    if(typeof(refresh)==='undefined'){
+      refresh = false;
+    }
+    else {
+      // reset start_with when refreshing page
+      $scope.start_with = null;
+    }
+
     $scope.loading = true;
+    $scope.new_posts = [];
     $http({
       url: $rootScope.site + "/archives.json",
       params: { type: $scope.type, start_with: $scope.start_with }
     }).success( function(res){
-      $scope.posts = $scope.posts.concat(res.posts);
+      $scope.new_posts = res.posts;
       $scope.start_with = res.start_with;
     }).finally(function(){
-      $scope.loading = false;
       $scope.$broadcast('scroll.refreshComplete');
+      if( ! refresh ){
+        $scope.posts = $scope.posts.concat($scope.new_posts);
+      }
+      else {
+        $scope.posts = $scope.new_posts;
+      }
+      $scope.loading = false;
     });
   }
 
-  $scope.load();
+  $scope.refresh();
 })
 
 .controller('BlogCtrl', function($scope, $http, $rootScope, $stateParams, $sce, ImageProcessor) {
